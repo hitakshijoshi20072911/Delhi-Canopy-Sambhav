@@ -103,7 +103,7 @@ Satellite & Climate Data
  Decision Intelligence Engine
         ↓
  Interactive Smart City Dashboard
-
+```
 ---
 
 
