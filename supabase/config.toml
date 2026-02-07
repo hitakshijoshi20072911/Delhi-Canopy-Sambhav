@@ -1,0 +1,16 @@
+project_id = "qdohhnrqxbnbagicnzcv"
+
+[functions.canopy-ai-chat]
+verify_jwt = false
+
+[functions.data-api]
+verify_jwt = false
+
+[functions.ml-analysis]
+verify_jwt = false
+
+[functions.ai-planner]
+verify_jwt = false
+
+[functions.seed-data]
+verify_jwt = false
