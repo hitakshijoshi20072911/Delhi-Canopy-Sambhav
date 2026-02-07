@@ -103,6 +103,8 @@ Satellite & Climate Data
  Decision Intelligence Engine
         ↓
  Interactive Smart City Dashboard
+ text```
+ 
 
 ---
 
@@ -150,6 +152,206 @@ Satellite & Climate Data
 ### Deployment
 - Cloud-native (Serverless-ready)
 - Scalable to city and state level
+
+---
+
+## 🚀 Installation & Local Development
+
+### Prerequisites
+
+Ensure your development environment meets the following requirements:
+
+- **Node.js**: Version 18.x or 20.x (recommended)
+- **npm**: Version 9.x or later
+- **Git**: For version control
+- **Supabase Account**: For backend services (optional for frontend-only development)
+
+### Quick Start
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/hitakshijoshi20072911/Delhi-Canopy-Sambhav.git
+   cd Delhi-Canopy-Sambhav
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Configuration**
+   
+   Create a `.env` file in the project root:
+   ```env
+   # Supabase Configuration (required for full functionality)
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   
+   # Optional: API Endpoints
+   VITE_API_BASE_URL=http://localhost:3001
+   ```
+
+4. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+   The application will be available at `http://localhost:5173`
+
+### Build & Production Deployment
+
+#### Local Production Build
+
+1. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+2. **Preview Production Build**
+   ```bash
+   npm run preview
+   ```
+
+   The production build will be served at `http://localhost:4173`
+
+#### Vercel Deployment
+
+1. **Connect Repository**
+   - Sign in to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Click "Add New..." → "Project"
+   - Import the `Delhi-Canopy-Sambhav` repository
+
+2. **Configure Build Settings**
+   ```
+   Framework Preset: Vite
+   Build Command: npm run build
+   Output Directory: dist
+   Install Command: npm install
+   Node.js Version: 18.x or 20.x
+   ```
+
+3. **Environment Variables**
+   Add the same environment variables from your `.env` file to Vercel's environment settings.
+
+4. **Deploy**
+   Click "Deploy" to initiate the build and deployment process.
+
+#### Alternative Deployment Options
+
+**Netlify:**
+```bash
+# Build command
+npm run build
+
+# Publish directory
+dist
+```
+
+**Docker Deployment:**
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 4173
+CMD ["npm", "run", "preview"]
+```
+
+### Development Workflow
+
+#### Available Scripts
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run build:dev` - Build in development mode
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint for code quality checks
+- `npm run test` - Run test suite
+- `npm run test:watch` - Run tests in watch mode
+
+#### Code Quality
+
+The project includes comprehensive linting and testing configurations:
+
+```bash
+# Lint all files
+npm run lint
+
+# Run tests
+npm run test
+
+# Watch mode for development
+npm run test:watch
+```
+
+### Project Structure
+
+```
+Delhi-Canopy-Sambhav/
+├── public/                 # Static assets
+├── src/
+│   ├── components/        # Reusable UI components
+│   │   ├── ui/           # Base UI components (shadcn/ui)
+│   │   ├── charts/       # Data visualization components
+│   │   ├── dashboard/    # Dashboard-specific components
+│   │   └── map/          # Map-related components
+│   ├── pages/            # Route components
+│   ├── hooks/            # Custom React hooks
+│   ├── services/         # API service layers
+│   ├── integrations/     # External service integrations
+│   ├── data/            # Mock data and constants
+│   └── lib/             # Utility functions
+├── supabase/            # Supabase configuration and functions
+└── dist/               # Production build output
+```
+
+### Troubleshooting
+
+#### Common Issues
+
+1. **Build Failures**
+   ```bash
+   # Clear cache and reinstall
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
+
+2. **Environment Variable Issues**
+   - Ensure all required variables are set in `.env`
+   - Restart development server after environment changes
+
+3. **Supabase Connection Errors**
+   - Verify Supabase URL and keys are correct
+   - Check Supabase project status and network connectivity
+
+#### Performance Optimization
+
+- Use `npm run build:dev` for faster development builds
+- Enable source maps in development for debugging
+- Monitor bundle size with build output warnings
+
+### Contributing Guidelines
+
+1. **Branch Strategy**
+   - `main` - Production-ready code
+   - `develop` - Integration branch
+   - `feature/*` - Feature-specific branches
+
+2. **Code Standards**
+   - Follow ESLint configuration
+   - Use TypeScript for type safety
+   - Write tests for new features
+
+3. **Commit Convention**
+   ```
+   feat: Add new feature
+   fix: Bug fix
+   docs: Documentation update
+   refactor: Code refactoring
+   test: Test additions/modifications
+   ```
 
 ---
 
