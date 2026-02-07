@@ -103,9 +103,13 @@ Satellite & Climate Data
  Decision Intelligence Engine
         ↓
  Interactive Smart City Dashboard
+<<<<<<< HEAD
  text```
  
 
+=======
+```
+>>>>>>> c55beb20c9b3bdeb8659f3954893aab4b4ffcb83
 ---
 
 
